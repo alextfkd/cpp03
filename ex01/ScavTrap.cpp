@@ -6,7 +6,7 @@
 /*   By: tkatsuma <tkatsuma@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/25 04:12:51 by tkatsuma          #+#    #+#             */
-/*   Updated: 2025/12/25 06:20:40 by tkatsuma         ###   ########.fr       */
+/*   Updated: 2025/12/25 06:37:37 by tkatsuma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,4 +63,14 @@ void ScavTrap::attack(const std::string& target) {
   std::cout << this->getName() << " attacks " << target
             << " by throwing knives, causing " << this->attack_damage_
             << " points of damage !" << std::endl;
+}
+
+void ScavTrap::guardGate(void) {
+  if (!this->checkHitPoints_()) {
+    return;
+  }
+  if (!this->useEnergyPoints_()) {
+    return;
+  }
+  std::cout << this->getName() << " is now in Gate Keeper mode." << std::endl;
 }

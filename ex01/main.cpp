@@ -6,7 +6,7 @@
 /*   By: tkatsuma <tkatsuma@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/25 02:29:08 by tkatsuma          #+#    #+#             */
-/*   Updated: 2025/12/25 06:31:20 by tkatsuma         ###   ########.fr       */
+/*   Updated: 2025/12/25 06:38:14 by tkatsuma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ int main(void) {
   for (int idx = 0; idx < 7; idx++) {  // NOLINT
     scavtrap_b.showStatus();
     scavtrap_b.attack(scavtrap_b.getName());
+    scavtrap_b.guardGate();
     scavtrap_b.takeDamage(24);  // NOLINT
   }
   return 0;
