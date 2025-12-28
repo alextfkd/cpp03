@@ -6,7 +6,7 @@
 /*   By: tkatsuma <tkatsuma@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/24 07:44:00 by tkatsuma          #+#    #+#             */
-/*   Updated: 2025/12/28 00:56:55 by tkatsuma         ###   ########.fr       */
+/*   Updated: 2025/12/28 03:05:13 by tkatsuma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ ClapTrap::ClapTrap(const std::string& name)
 }
 
 ClapTrap::ClapTrap(const ClapTrap& other) : type_(other.type_) {
-  *this = other;
   std::cout << "ClapTrap copy constructor called." << std::endl;
+  *this = other;
 }
 
 ClapTrap& ClapTrap::operator=(const ClapTrap& other) {
