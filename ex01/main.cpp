@@ -6,7 +6,7 @@
 /*   By: tkatsuma <tkatsuma@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/25 02:29:08 by tkatsuma          #+#    #+#             */
-/*   Updated: 2025/12/27 23:33:27 by tkatsuma         ###   ########.fr       */
+/*   Updated: 2025/12/28 02:57:45 by tkatsuma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void constructorTest() {
   std::cout << type << " 2 name: " << instance_2.getName() << std::endl;
 
   std::cout << "\n=== 3. Copy Constructor Test ===" << std::endl;
-  t instance_2copy(instance_2);
+  t instance_2copy(instance_2);  // NOLINT
   std::cout << type << " 2 (copy) name: " << instance_2copy.getName()
             << std::endl;
 
