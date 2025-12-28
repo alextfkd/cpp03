@@ -6,7 +6,7 @@
 /*   By: tkatsuma <tkatsuma@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/24 06:13:44 by tkatsuma          #+#    #+#             */
-/*   Updated: 2025/12/26 16:06:28 by tkatsuma         ###   ########.fr       */
+/*   Updated: 2025/12/28 00:48:37 by tkatsuma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,20 +19,19 @@
 
 class ClapTrap {
  private:
-  const static unsigned int kDefaultHitPoints_     = 10;
-  const static unsigned int kDefaultEnPoints_      = 10;
-  const static unsigned int kDefaultAttackDamages_ = 0;
-  const static unsigned int kUINT_MAX_             = (unsigned int)0xFFFFFFFF;
+  const static unsigned int kDefaultHitPoints     = 10;
+  const static unsigned int kDefaultEnPoints      = 10;
+  const static unsigned int kDefaultAttackDamages = 0;
 
-  const std::string kType_;
+  const std::string kType;
 
   std::string  name_;
   unsigned int hit_points_;
   unsigned int energy_points_;
   unsigned int attack_damage_;
 
-  bool checkHitPoints_();
-  bool useEnergyPoints_();
+  bool checkHitPoints();
+  bool useEnergyPoints();
 
  public:
   ClapTrap();

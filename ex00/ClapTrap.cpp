@@ -6,36 +6,37 @@
 /*   By: tkatsuma <tkatsuma@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/24 07:44:00 by tkatsuma          #+#    #+#             */
-/*   Updated: 2025/12/26 16:06:23 by tkatsuma         ###   ########.fr       */
+/*   Updated: 2025/12/28 00:10:05 by tkatsuma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
-// ClapTrap::kType_ = "ClapTrap";
-
 ClapTrap::ClapTrap()
-    : kType_("ClapTrap"),
+    : kType("ClapTrap"),
       name_("default"),
-      hit_points_(ClapTrap::kDefaultHitPoints_),
-      energy_points_(ClapTrap::kDefaultEnPoints_),
-      attack_damage_(ClapTrap::kDefaultAttackDamages_) {}
+      hit_points_(ClapTrap::kDefaultHitPoints),
+      energy_points_(ClapTrap::kDefaultEnPoints),
+      attack_damage_(ClapTrap::kDefaultAttackDamages) {
+  std::cout << "ClapTrap default constructor called." << std::endl;
+}
 
 ClapTrap::ClapTrap(const std::string& name)
-    : kType_("ClapTrap"),
+    : kType("ClapTrap"),
       name_(name),
-      hit_points_(ClapTrap::kDefaultHitPoints_),
-      energy_points_(ClapTrap::kDefaultEnPoints_),
-      attack_damage_(ClapTrap::kDefaultAttackDamages_) {}
+      hit_points_(ClapTrap::kDefaultHitPoints),
+      energy_points_(ClapTrap::kDefaultEnPoints),
+      attack_damage_(ClapTrap::kDefaultAttackDamages) {
+  std::cout << "ClapTrap parameter constructor called." << std::endl;
+}
 
-ClapTrap::ClapTrap(const ClapTrap& other) : kType_(other.kType_) {
-  this->name_          = other.name_;
-  this->hit_points_    = other.hit_points_;
-  this->energy_points_ = other.energy_points_;
-  this->attack_damage_ = other.attack_damage_;
+ClapTrap::ClapTrap(const ClapTrap& other) : kType(other.kType) {
+  *this = other;
+  std::cout << "ClapTrap copy constructor called." << std::endl;
 }
 
 ClapTrap& ClapTrap::operator=(const ClapTrap& other) {
+  std::cout << "ClapTrap copy assignment constructor called." << std::endl;
   if (this != &other) {
     this->name_          = other.name_;
     this->hit_points_    = other.hit_points_;
@@ -45,9 +46,11 @@ ClapTrap& ClapTrap::operator=(const ClapTrap& other) {
   return *this;
 }
 
-ClapTrap::~ClapTrap() {}
+ClapTrap::~ClapTrap() {
+  std::cout << this->getName() << " destructor called." << std::endl;
+}
 
-bool ClapTrap::checkHitPoints_(void) {
+bool ClapTrap::checkHitPoints(void) {
   std::string kMsgNoHitPoints_ =
       "ClapTrap " + this->name_ +
       " can’t do anything if it has no hit points left.";
@@ -58,7 +61,7 @@ bool ClapTrap::checkHitPoints_(void) {
   return false;
 }
 
-bool ClapTrap::useEnergyPoints_(void) {
+bool ClapTrap::useEnergyPoints(void) {
   std::string kMsgNoEnergy_ =
       "ClapTrap " + this->name_ +
       " can’t do anything if it has no energy points left.";
@@ -71,10 +74,10 @@ bool ClapTrap::useEnergyPoints_(void) {
 }
 
 void ClapTrap::attack(const std::string& target) {
-  if (!this->checkHitPoints_()) {
+  if (!this->checkHitPoints()) {
     return;
   }
-  if (!this->useEnergyPoints_()) {
+  if (!this->useEnergyPoints()) {
     return;
   }
   std::cout << this->getName() << " attacks " << target << ", causing "
@@ -82,16 +85,17 @@ void ClapTrap::attack(const std::string& target) {
 }
 
 void ClapTrap::beRepaired(unsigned int amount) {
-  if (!this->checkHitPoints_()) {
+  unsigned int u_max = std::numeric_limits<unsigned int>::max();
+  if (!this->checkHitPoints()) {
     return;
   }
-  if (!this->useEnergyPoints_()) {
+  if (!this->useEnergyPoints()) {
     return;
   }
   std::cout << this->getName() << " is repaired. "
             << "The hit points recovered by " << amount << "!" << std::endl;
-  if (this->hit_points_ > ClapTrap::kUINT_MAX_ - amount) {
-    this->hit_points_ = ClapTrap::kUINT_MAX_;
+  if (this->hit_points_ > u_max - amount) {
+    this->hit_points_ = u_max;
     return;
   }
   this->hit_points_ += amount;
@@ -118,5 +122,5 @@ void ClapTrap::showStatus(void) const {
 }
 
 std::string ClapTrap::getName(void) const {
-  return this->kType_ + " " + this->name_;
+  return this->kType + " " + this->name_;
 }
