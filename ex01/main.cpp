@@ -6,14 +6,45 @@
 /*   By: tkatsuma <tkatsuma@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/25 02:29:08 by tkatsuma          #+#    #+#             */
-/*   Updated: 2025/12/25 06:38:14 by tkatsuma         ###   ########.fr       */
+/*   Updated: 2025/12/27 23:33:27 by tkatsuma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
 
+void constructorTest() {
+  typedef ScavTrap t;
+  std::string      type = "ScavTrap";
+  std::cout << "=== Constructor Test Start ===" << std::endl;
+  std::cout << "=== 1. Default Constructor Test ===" << std::endl;
+  t instance_0;
+  std::cout << type << " 0 name: " << instance_0.getName() << std::endl;
+
+  std::cout << "\n=== 2. Parameter Constructor Test ===" << std::endl;
+  t const instance_1("Uno");
+  t const instance_2("Dos");
+  std::cout << type << " 1 name: " << instance_1.getName() << std::endl;
+  std::cout << type << " 2 name: " << instance_2.getName() << std::endl;
+
+  std::cout << "\n=== 3. Copy Constructor Test ===" << std::endl;
+  t instance_2copy(instance_2);
+  std::cout << type << " 2 (copy) name: " << instance_2copy.getName()
+            << std::endl;
+
+  std::cout << "\n=== 4. Copy Assignment Operator Test ===" << std::endl;
+  t const instance_3("Tres");
+  t       instance_3copyassigned;
+  instance_3copyassigned = instance_3;
+  std::cout << type << " 3 name: " << instance_3.getName() << std::endl;
+  std::cout << type
+            << " 3 (copy-assigned) name: " << instance_3copyassigned.getName()
+            << std::endl;
+  std::cout << "=== Constructor Test  End ===" << std::endl << std::endl;
+}
+
 int main(void) {
+  constructorTest();
   ClapTrap claptrap_a = ClapTrap("alpha");
   ScavTrap scavtrap_b = ScavTrap("bravo");
 
