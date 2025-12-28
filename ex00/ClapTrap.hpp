@@ -6,7 +6,7 @@
 /*   By: tkatsuma <tkatsuma@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/24 06:13:44 by tkatsuma          #+#    #+#             */
-/*   Updated: 2025/12/28 00:48:37 by tkatsuma         ###   ########.fr       */
+/*   Updated: 2025/12/28 00:56:36 by tkatsuma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,7 @@ class ClapTrap {
   const static unsigned int kDefaultEnPoints      = 10;
   const static unsigned int kDefaultAttackDamages = 0;
 
-  const std::string kType;
-
+  std::string  type_;
   std::string  name_;
   unsigned int hit_points_;
   unsigned int energy_points_;

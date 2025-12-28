@@ -6,14 +6,14 @@
 /*   By: tkatsuma <tkatsuma@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/24 07:44:00 by tkatsuma          #+#    #+#             */
-/*   Updated: 2025/12/28 00:10:05 by tkatsuma         ###   ########.fr       */
+/*   Updated: 2025/12/28 00:56:55 by tkatsuma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
 ClapTrap::ClapTrap()
-    : kType("ClapTrap"),
+    : type_("ClapTrap"),
       name_("default"),
       hit_points_(ClapTrap::kDefaultHitPoints),
       energy_points_(ClapTrap::kDefaultEnPoints),
@@ -22,7 +22,7 @@ ClapTrap::ClapTrap()
 }
 
 ClapTrap::ClapTrap(const std::string& name)
-    : kType("ClapTrap"),
+    : type_("ClapTrap"),
       name_(name),
       hit_points_(ClapTrap::kDefaultHitPoints),
       energy_points_(ClapTrap::kDefaultEnPoints),
@@ -30,7 +30,7 @@ ClapTrap::ClapTrap(const std::string& name)
   std::cout << "ClapTrap parameter constructor called." << std::endl;
 }
 
-ClapTrap::ClapTrap(const ClapTrap& other) : kType(other.kType) {
+ClapTrap::ClapTrap(const ClapTrap& other) : type_(other.type_) {
   *this = other;
   std::cout << "ClapTrap copy constructor called." << std::endl;
 }
@@ -122,5 +122,5 @@ void ClapTrap::showStatus(void) const {
 }
 
 std::string ClapTrap::getName(void) const {
-  return this->kType + " " + this->name_;
+  return this->type_ + " " + this->name_;
 }
