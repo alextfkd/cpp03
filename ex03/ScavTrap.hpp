@@ -6,7 +6,7 @@
 /*   By: tkatsuma <tkatsuma@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/25 04:12:53 by tkatsuma          #+#    #+#             */
-/*   Updated: 2025/12/26 03:58:28 by tkatsuma         ###   ########.fr       */
+/*   Updated: 2025/12/28 03:22:30 by tkatsuma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@
 
 class ScavTrap : virtual public ClapTrap {
  protected:
-  const static unsigned int kDefaultHitPoints_     = 100;
-  const static unsigned int kDefaultEnPoints_      = 50;
-  const static unsigned int kDefaultAttackDamages_ = 20;
+  const static unsigned int kDefaultHitPoints     = 100;
+  const static unsigned int kDefaultEnPoints      = 50;
+  const static unsigned int kDefaultAttackDamages = 20;
 
  public:
   ScavTrap();

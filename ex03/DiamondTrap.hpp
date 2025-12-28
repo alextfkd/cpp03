@@ -6,7 +6,7 @@
 /*   By: tkatsuma <tkatsuma@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/25 07:36:14 by tkatsuma          #+#    #+#             */
-/*   Updated: 2025/12/26 05:59:12 by tkatsuma         ###   ########.fr       */
+/*   Updated: 2025/12/28 03:21:41 by tkatsuma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,6 @@
 
 class DiamondTrap : public FragTrap, public ScavTrap {
  protected:
-  const static unsigned int kUINT_MAX_ = (unsigned int)0xFFFFFFFF;
-
   std::string  name_;
   unsigned int hit_points_;
   unsigned int energy_points_;
